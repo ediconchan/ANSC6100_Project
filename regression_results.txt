@@ -153,3 +153,117 @@ Max Error            : 3.684 (0.487)
 real	143m0.218s
 user	142m2.621s
 sys	0m6.046s
+
+
+
+
+Fingerprint Bit = 3072
+Single columns removed (53)
+Duplicated rows and columns not removed
+Performed on Cedar 32gb sbatch
+
+
+Model                : Decision Tree Regression
+K-folds              : 5
+Num splits           : 3
+MAE                  : 0.680 (0.025)
+MSE                  : 1.036 (0.076)
+RMSE                 : 1.016 (0.033)
+R2                   : 0.548 (0.034)
+Explained variance   : 0.550 (0.034)
+Max Error            : 4.842 (0.437)
+
+real	3m41.006s
+user	2m9.806s
+sys	0m4.905s
+
+
+
+Model                : K-Nearest Neighbour Regression
+K-folds              : 5
+Num splits           : 3
+MAE                  : 0.664 (0.017)
+MSE                  : 0.876 (0.050)
+RMSE                 : 0.935 (0.027)
+R2                   : 0.621 (0.020)
+Explained variance   : 0.622 (0.020)
+Max Error            : 4.181 (0.550)
+
+real	2m39.069s
+user	1m38.043s
+sys	0m3.907s
+
+
+Model                : AdaBoost Regression
+K-folds              : 5
+Num splits           : 3
+MAE                  : 1.020 (0.025)
+MSE                  : 1.479 (0.057)
+RMSE                 : 1.216 (0.023)
+R2                   : 0.360 (0.018)
+Explained variance   : 0.368 (0.016)
+Max Error            : 3.196 (0.249)
+
+real	41m6.607s
+user	32m13.626s
+sys	7m54.589s
+
+
+Model                : Multi-Layer Perceptron Regression
+K-folds              : 5
+Num splits           : 3
+MAE                  : 1.095 (0.213)
+MSE                  : 1.787 (0.564)
+RMSE                 : 1.318 (0.220)
+R2                   : 0.227 (0.244)
+Explained variance   : 0.229 (0.244)
+Max Error            : 3.708 (0.380)
+
+real	16m3.509s
+user	14m15.831s
+sys	0m4.131s
+
+
+Model                : Support Vector Regression
+K-folds              : 5
+Num splits           : 3
+MAE                  : 0.899 (0.016)
+MSE                  : 1.402 (0.060)
+RMSE                 : 1.184 (0.025)
+R2                   : 0.393 (0.018)
+Explained variance   : 0.394 (0.018)
+Max Error            : 4.672 (0.309)
+
+real	74m2.340s
+user	72m40.353s
+sys	0m17.943s
+
+
+Model                : Gradient Boosting Regression
+K-folds              : 5
+Num splits           : 3
+MAE                  : 0.764 (0.018)
+MSE                  : 0.905 (0.044)
+RMSE                 : 0.951 (0.024)
+R2                   : 0.609 (0.017)
+Explained variance   : 0.609 (0.017)
+Max Error            : 3.354 (0.356)
+
+real	87m10.620s
+user	85m50.647s
+sys	0m15.863s
+
+
+Model                : Random Forest
+K-folds              : 5
+Num splits           : 3
+MAE                  : 0.541 (0.017)
+MSE                  : 0.573 (0.042)
+RMSE                 : 0.756 (0.028)
+R2                   : 0.752 (0.016)
+Explained variance   : 0.753 (0.016)
+Max Error            : 3.666 (0.439)
+
+real	136m41.990s
+user	134m57.895s
+sys	0m8.714s
