@@ -5,12 +5,14 @@ from rdkit.Chem import AllChem
 from rdkit import Chem
 from rdkit.Chem import Descriptors
 from rdkit.ML.Descriptors import MoleculeDescriptors
+from sklearn.feature_selection import VarianceThreshold
+from pycytominer.cyto_utils.util import get_pairwise_correlation
 
 def morgan_fpts(data):
     Morgan_fpts = []
     for i in data:
         mol = Chem.MolFromSmiles(i) 
-        fpts =  AllChem.GetMorganFingerprintAsBitVect(mol,2,4096)
+        fpts =  AllChem.GetMorganFingerprintAsBitVect(mol,2,3072)
         mfpts = np.array(fpts)
         Morgan_fpts.append(mfpts)  
     return np.array(Morgan_fpts)
@@ -50,4 +52,28 @@ print(result[dups])
 print(result.T[dups2])
 print(result.dtypes)
 
+
+# Filter out columns with variance less than 0.01
+vt = VarianceThreshold(threshold = 0.01).set_output(transform="pandas")
+result = vt.fit_transform(result)
+print("Size of dataframe after variance < 0.01: ", result.shape)
+
+print(result)
+
+
+# Obtain list of Pearson correlation values for each column pair
+corr_list = get_pairwise_correlation(result)[1]
+
+# Keep colnames that have absolute Pearson correlation value above 0.96
+corr_list = corr_list[abs(corr_list['correlation']) >= 0.96]
+
+# Concatenate the names together and filter out repeated names
+name_list = pd.concat([corr_list['pair_a'], corr_list['pair_b']])
+name_list = name_list.unique()
+
+# Drop columns that are found in the reported correlated name list
+result.drop(columns=name_list, inplace=True)
+print(result)
+
+# Output post-processed morgan fingerprint datafrane to csv
 result.to_csv("erbb1_singleprotein_neglog10_ic50_fingerprint.csv")
